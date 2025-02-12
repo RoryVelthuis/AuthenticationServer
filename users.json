@@ -2,11 +2,16 @@
   {
     "username": "ExampleAccount",
     "password": "$2b$10$Y85NxugefB.qjnKuZ2GEP.7.p6Eds7zj8Xq.fmjVNS2aSd.lOZmYW",
-    "role": "user"
+    "role": "admin"
   },
   {
     "username": "Admin",
     "password": "$2b$10$fxCUqMPfNKIgkq.1cyahee7hvcOJSvhTPoowNZmjoAPu0XDfekPra",
+    "role": "admin"
+  },
+  {
+    "username": "ExampleAccount2",
+    "password": "$2b$10$kghGKI8bC9bhWqDPAzjY5.gnlzWtuYrIu0hZnRoc17TscggTqKeP6",
     "role": "admin"
   }
 ]

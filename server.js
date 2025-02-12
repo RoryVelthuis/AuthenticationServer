@@ -4,6 +4,7 @@ const cors = require('cors'); // Import cors
 const app = express(); // Create an express app
 const parser = require('body-parser'); // Import body-parser
 const authRoutes = require('./routes/auth'); // Import auth routes
+const adminRoutes = require('./routes/admin')
 const { verifyToken, checkRole } = require('./jwt') // Token verification
 const logger = require('./logger'); // Import logger
 
@@ -20,6 +21,9 @@ app.use((req, res, next) => {
 
 // Use the auth routes
 app.use('/auth', authRoutes) 
+
+//Use the admin route
+app.use('/admin', adminRoutes)
 
 
 // User protected route
