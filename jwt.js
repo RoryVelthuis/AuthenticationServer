@@ -1,7 +1,7 @@
 const jwt = require('jsonwebtoken');
 
 const generateToken = (user) => {
-    const payload = { username: user.username };
+    const payload = { username: user.username, role: user.role };
     const secret = process.env.JWT_SECRET;
     const options = { expiresIn: '1h' };
 
@@ -29,8 +29,17 @@ const verifyToken = (req, res, next) => {
     });
 };
 
+const checkRole = (role) => (req, res, next) => {
+    console.log(req.user.role);
+    if (req.user.role != role) {
+        return res.status(403).json({message: 'Forbidden: Insufficent role'})
+    }
+    next();
+}
+
 
 module.exports = {
     generateToken,
-    verifyToken
+    verifyToken,
+    checkRole
 }

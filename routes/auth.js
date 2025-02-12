@@ -55,7 +55,12 @@ router.post('/register', validateRegistration, validate, async (req, res) => {
     
         // Hash the password
         const hashedPassword = await bcrypt.hash(password, 10);
-        users.push({ username, password: hashedPassword }); // Add user to the list
+
+        // Assign detault role 'user'
+        const role = 'user';
+
+        // Push user to the list
+        users.push({username, password: hashedPassword, role});
 
         // Write users to file
         writeUsersToFile(users);
